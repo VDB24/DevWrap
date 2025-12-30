@@ -2,7 +2,7 @@ import React, { type ChangeEvent } from 'react';
 import type { PersonalDetails } from '../../types';
 import { Card } from '../ui/Card';
 import { Input } from '../ui/Input';
-import { FiUser, FiBriefcase, FiAperture, FiImage } from 'react-icons/fi';
+import { FiUser, FiBriefcase, FiImage } from 'react-icons/fi';
 import styles from './Forms.module.css';
 import { PERSONALITY_OPTIONS } from '../../data/options';
 
