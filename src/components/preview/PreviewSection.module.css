@@ -1,0 +1,115 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  /* Not sticky here, parent handles alignment */
+}
+
+.previewContainer {
+  background: #050505;
+  border-color: #222;
+  overflow: hidden; 
+  /* padding: 0; removed to fix header cropping */
+}
+
+.responsiveWrapper {
+  width: 100%;
+  padding: 1rem;
+  overflow-x: auto; /* Allow scroll if card is too wide */
+  display: flex;
+  justify-content: center; /* Center if space available */
+  align-items: flex-start; /* Align top */
+}
+
+/* 
+   We want the card to stay fixed at its designed width (e.g. 400px or 450px) 
+   and scale down if the screen is smaller.
+*/
+.scaler {
+  transform-origin: top center;
+  /* If screen is small, we might need a media query or a dynamic scale script. 
+     CSS-only scaling for variable width is tricky without container queries or JS.
+     BUT, we can just let it scroll horizontally if it's too big, OR we can set max-width: 100%.
+  */
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+/* 
+   Actually, let's just make the CARD fluid but with min sizes.
+   The user reported the image is "not displayed". 
+   If I set PreviewCard container to width: 100% (which it is),
+   and the parent is small (350px), the content might overflow.
+*/
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.downloadBtn {
+  background: linear-gradient(90deg, var(--primary-color), var(--primary-glow));
+  color: #000;
+  font-weight: 700;
+  font-size: 1.1rem;
+  padding: 1rem;
+  border-radius: var(--radius-md);
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: transform 0.1s, box-shadow 0.2s;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.downloadBtn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 20px var(--primary-glow);
+}
+
+.downloadBtn:disabled {
+  opacity: 0.7;
+  cursor: default;
+}
+
+.shareSection {
+  background: var(--card-bg);
+  padding: 1.5rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-color);
+}
+
+.shareSection h4 {
+  margin: 0 0 1rem 0;
+}
+
+.shareIcons {
+  display: flex;
+  gap: 1rem;
+}
+
+.shareBtn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.05);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 1.2rem;
+}
+
+.shareBtn:hover {
+  background: #fff;
+  color: #000;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}

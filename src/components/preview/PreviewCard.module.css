@@ -1,0 +1,307 @@
+.container {
+  width: 100%;
+  max-width: 450px;
+  min-height: 800px; /* Approx 9:16 ratio but flexible */
+  height: auto;
+  background-color: #030305;
+  color: #fff;
+  position: relative;
+  /* overflow: hidden; Removed to prevent clipping */
+  padding: 3rem 2.5rem; /* Increased padding for more white space */
+  box-shadow: 0 50px 100px -20px rgba(0,0,0,0.5);
+  font-family: var(--font-heading);
+  display: flex;
+  flex-direction: column;
+  user-select: none;
+  /* Ensure it looks good in the container */
+  border-radius: 4px; /* Slight radius for the preview, though download is rect */
+}
+
+
+
+/* Backgrounds */
+.bgOverlay {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  z-index: 0;
+  filter: saturate(1.2) contrast(1.1);
+}
+
+.gradientOverlay {
+  position: absolute;
+  inset: 0;
+  background: 
+    radial-gradient(circle at 100% 0%, rgba(255,255,255,0.03) 0%, transparent 20%),
+    radial-gradient(circle at 0% 100%, rgba(255,255,255,0.03) 0%, transparent 20%),
+    linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.95) 100%);
+  z-index: 1;
+}
+
+/* Add an internal border/frame effect */
+.container::after {
+  content: '';
+  position: absolute;
+  inset: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.content {
+  position: relative;
+  z-index: 3;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Header */
+.header {
+  text-align: center;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.subhead {
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  font-size: 0.8rem;
+  margin-bottom: 0.8rem;
+  opacity: 0.8;
+  color: var(--primary-color);
+}
+
+.title {
+  font-size: 5rem;
+  line-height: 0.8;
+  font-weight: 900;
+  text-transform: uppercase;
+  margin: 0;
+  letter-spacing: -3px;
+  background: linear-gradient(180deg, #fff, #aaa);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.titleStack {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  line-height: 0.9;
+}
+
+.wrapSub {
+  font-size: 1.5rem;
+  letter-spacing: 4px;
+  font-weight: 800;
+  color: var(--primary-color);
+  background: none;
+  -webkit-text-fill-color: var(--primary-color);
+  margin-top: -2px; /* Pull it up slightly */
+}
+
+.year {
+  font-size: 1.2rem;
+  font-style: italic;
+  font-weight: 500;
+  color: #fff;
+  background: none;
+  -webkit-text-fill-color: rgba(255,255,255,0.7);
+  letter-spacing: 1px;
+}
+
+.tagline {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin-top: 1rem;
+  letter-spacing: 1px;
+}
+
+/* Stats Grid */
+.statsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem 1.5rem; /* Increased vertical gap for breathing room */
+  margin-bottom: auto;
+  padding: 1.5rem 0; /* Increased padding */
+}
+
+.statItem {
+  display: flex;
+  flex-direction: column;
+}
+
+.statLabel {
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  opacity: 0.5;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 0.3rem;
+  font-family: var(--font-mono);
+}
+
+.statValue {
+  font-size: 2rem;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -1px;
+}
+
+/* Bottom Section */
+.bottomSection {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 2rem;
+}
+
+.leftCol {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  flex-shrink: 0;
+  z-index: 5;
+}
+
+.userInfo h3 {
+  font-size: 1.1rem;
+  margin: 0;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+.userInfo p {
+  margin: 0;
+  font-size: 0.75rem;
+  opacity: 0.6;
+  font-family: var(--font-mono);
+}
+
+.polaroid {
+  cursor: pointer;
+  background: #fff;
+  padding: 6px 6px 20px 6px;
+  width: 110px;
+  min-width: 110px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+  transform: rotate(-3deg);
+  transition: transform 0.2s;
+}
+
+.polaroid:hover {
+  transform: scale(1.05) rotate(0deg) !important;
+  z-index: 10;
+}
+
+.polaroidInner {
+  width: 100%;
+  aspect-ratio: 1;
+  background: #eee;
+  overflow: hidden;
+  filter: grayscale(0.2);
+}
+
+.polaroidInner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.rightCol {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  text-align: right;
+  align-items: flex-end;
+}
+
+.listSection h4 {
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  opacity: 0.5;
+  margin-bottom: 0.5rem;
+  letter-spacing: 1px;
+  font-family: var(--font-mono);
+}
+
+.iconRow {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: flex-end;
+}
+
+.techIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px; /* Fixed size for images */
+  height: 20px;
+}
+
+.techIcon img,
+.techIcon svg {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.personality {
+  display: flex;
+  flex-direction: column;
+}
+
+.personalityLabel {
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  opacity: 0.5;
+  margin-bottom: 0.2rem;
+}
+
+.personalityValue {
+  font-size: 1.4rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  color: var(--primary-color);
+  letter-spacing: -1px;
+  text-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+
+
+/* Export Overrides to fix html2canvas issues */
+.exporting .title {
+  background: none !important;
+  -webkit-background-clip: unset !important;
+  background-clip: unset !important;
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  text-shadow: 0 4px 10px rgba(0,0,0,0.5); /* Add shadow to maintain legibility without gradient */
+}
+
+.exporting .wrapSub {
+  background: none !important;
+  -webkit-text-fill-color: var(--primary-color) !important;
+  color: var(--primary-color) !important;
+}
+
+.exporting .year {
+  background: none !important;
+  -webkit-text-fill-color: rgba(255,255,255,0.7) !important;
+  color: rgba(255,255,255,0.7) !important;
+}

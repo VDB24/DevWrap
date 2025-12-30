@@ -1,0 +1,60 @@
+:root {
+  /* Core Backgrounds */
+  --bg-color: #030305;
+  --bg-subtle: #0a0a0c;
+  
+  /* Glassmorphism Configuration */
+  --glass-bg: rgba(20, 20, 25, 0.6);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-blur: 16px;
+  
+  /* Text Colors */
+  --text-main: #f0f0f0;
+  --text-muted: #8a8a93;
+  --text-highlight: #ffffff;
+
+  /* Theme: Neon Green (Refined) */
+  --primary-color: #2dd4bf; /* Teal-ish Green, less harsh than pure #00ff41 */
+  --primary-glow: rgba(45, 212, 191, 0.3);
+  --accent-gradient: linear-gradient(135deg, #2dd4bf 0%, #3b82f6 100%);
+  
+  /* Spacing */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 1.5rem;
+  --spacing-lg: 2.5rem;
+  --spacing-xl: 4rem;
+
+  /* Typography */
+  --font-heading: 'Montserrat', 'Plus Jakarta Sans', system-ui, sans-serif;
+  --font-body: 'Montserrat', system-ui, sans-serif; 
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+
+  /* Shapes & Radius */
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-full: 9999px;
+  
+  /* Shadows */
+  --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-glow: 0 0 20px var(--primary-glow);
+}
+
+[data-theme='purple'] {
+  --primary-color: #c084fc;
+  --primary-glow: rgba(192, 132, 252, 0.3);
+  --accent-gradient: linear-gradient(135deg, #c084fc 0%, #f472b6 100%);
+}
+
+[data-theme='blue'] {
+  --primary-color: #38bdf8;
+  --primary-glow: rgba(56, 189, 248, 0.3);
+  --accent-gradient: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
+}
+
+[data-theme='orange'] {
+  --primary-color: #fb923c;
+  --primary-glow: rgba(251, 146, 60, 0.3);
+  --accent-gradient: linear-gradient(135deg, #fb923c 0%, #f43f5e 100%);
+}
