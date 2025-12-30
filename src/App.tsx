@@ -75,13 +75,7 @@ function App() {
         </div>
       </main>
       
-      <footer className={styles.footer} style={{
-        textAlign: 'center', 
-        padding: '2rem 0', 
-        color: 'rgba(255, 255, 255, 0.4)',
-        fontSize: '0.9rem',
-        fontWeight: 500
-      }}>
+      <footer className={styles.footer}>
         Made with <span style={{ color: '#ef4444' }}>♥</span> by Vashisht DB
       </footer>
     </div>

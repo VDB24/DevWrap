@@ -108,6 +108,18 @@
   grid-template-columns: 1fr;
   gap: 3rem;
   padding-bottom: 4rem;
+  position: relative;
+  z-index: 2;
+}
+
+.footer {
+  text-align: center;
+  padding: 2rem 0;
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 0.9rem;
+  font-weight: 500;
+  position: relative;
+  z-index: 2;
 }
 
 .inputColumn {
